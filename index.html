@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>רמז בתמונה</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      padding: 25px;
+      text-align: right;
+      font-size: 24px;
+      color: #2c3e50;
+      background-color: #ffffff;
+      margin-top: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      direction: rtl;
+    }
+
+    .intro-text strong {
+      color: #e74c3c;
+    }
+
+    .intro-text .emoji {
+      font-size: 28px;
+      margin-left: 8px;
+    }
+
+    .image-container {
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .hint {
+      position: absolute;
+      top: 380px;
+      left: 350px;
+      width: 80px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .hint:hover .tooltip {
+      display: block;
+    }
+
+    .monitor-area {
+      position: absolute;
+      top: 80px;
+      left: 170px;
+      width: 200px;
+      height: 120px;
+      cursor: pointer;
+    }
+
+    .monitor-tooltip {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 180px;
+      background-color: #2980b9;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .monitor-area:hover + .monitor-tooltip {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function promptPassword() {
+      const password = prompt("הכנס סיסמה:");
+      if (password === "1234") {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeKPsAbkPpFp8Gyc3fX1erBp41JqoBCcbJo4BRvTkkUjxIgJQ/viewform?usp=header";
+      } else {
+        alert("סיסמה שגויה. נסה שוב.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="intro-text">
+    <span class="emoji">🕵️‍♂️</span>
+    <strong>ברוך הבא למשימה!</strong><br>
+    עליך לחקור את התמונה, למצוא את <strong>הרמז</strong> ולהזין את <strong>הסיסמה</strong> כדי להיכנס למחשב 💻.<br>
+    שם מחכה לך <strong>הודעה סודית וחשובה</strong> במיוחד! 📬<br><br>
+    בהצלחה, סוכן צעיר! 🕶️
+  </div>
+
+  <div class="image-container">
+    <img src="room.png" alt="חדר מחשב של ילד" width="800">
+    <div class="hint">
+      <div class="tooltip">הסיסמה היא: 1234</div>
+    </div>
+    <div class="monitor-area" onclick="promptPassword()"></div>
+    <div class="monitor-tooltip">🔍 לחץ כאן להיכנס</div>
+  </div>
+
+</body>
+</html>
